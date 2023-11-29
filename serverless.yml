@@ -21,7 +21,7 @@ plugins:
 custom:
   scripts:
     hooks:
-      'before:deploy:deploy': ./scripts/before_deploy.sh
+      'before:deploy:deploy': sudo service docker start
 
 
     
