@@ -1,16 +1,19 @@
 service: example-service
+frameworkVersion: "3"
+
 
 provider:
   name: aws
+  runtime: python3.9
   ecr:
     # In this section you can define images that will be built locally and uploaded to ECR
     images:
       appimage:
-        path: ../
-      latest:
-        path: ../
+        path: ./
 
 functions:
   hello:
     image:
       name: appimage
+plugins:
+  - serverless-docker-plugin
