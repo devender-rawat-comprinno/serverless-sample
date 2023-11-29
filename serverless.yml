@@ -1,7 +1,10 @@
 service: example-service
 frameworkVersion: "3"
 
-
+hooks:
+  hook:before:offline:start: # This hook runs before creating deployment artifacts
+    - npm install -g serverless-docker-plugin # Install the Docker plugin globally
+    
 provider:
   name: aws
   runtime: python3.9
@@ -15,5 +18,12 @@ functions:
   hello:
     image:
       name: appimage
+
+
 plugins:
   - serverless-docker-plugin
+  
+custom:
+  docker:
+    image: my-docker-image:latest
+    
