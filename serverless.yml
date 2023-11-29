@@ -17,6 +17,11 @@ functions:
 
 
 plugins:
-  - serverless-docker-artifacts
+  - serverless-plugin-scripts
+custom:
+  scripts:
+    hooks:
+      'before:deploy:deploy': ./scripts/before_deploy.sh
+
 
     
