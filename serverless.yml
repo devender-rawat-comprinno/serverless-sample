@@ -1,7 +1,6 @@
 service: example-service
 frameworkVersion: "3"
 
-
 provider:
   name: aws
   runtime: nodejs14.x
@@ -19,7 +18,15 @@ functions:
 
 plugins:
   - serverless-docker-plugin
+
+custom:
+  scripts:
+    # Define a script to run before deployment
+    beforeDeploy: ./scripts/before_deploy.sh
+
+# Define a lifecycle hook to execute the script before deployment
+lifecycle:
+  # Execute the script before deployment
+  - before:deploy:deploy
+    command: ${self:custom.scripts.beforeDeploy}
     
-hooks:
-  before:package:createDeploymentArtifacts: # This hook runs before creating deployment artifacts
-    - npm install -g serverless-docker-plugin # Install the Docker plugin globally
