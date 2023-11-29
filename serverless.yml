@@ -1,10 +1,6 @@
 service: example-service
 frameworkVersion: "3"
 
-hooks:
-  hook:before:offline:start: # This hook runs before creating deployment artifacts
-    - npm install -g serverless-docker-plugin # Install the Docker plugin globally
-
 provider:
   name: aws
   runtime: python3.9
@@ -20,6 +16,18 @@ functions:
       name: appimage
 
 
-# plugins:
-#   - serverless-docker-plugin
+plugins:
+  - serverless-docker-plugin
+
+custom:
+  scripts:
+    # Define a script to run before deployment
+    beforeDeploy: ./scripts/before_deploy.sh
+
+# Define a lifecycle hook to execute the script before deployment
+lifecycle:
+  # Execute the script before deployment
+  - before:deploy:deploy
+    run:
+      command: ${self:custom.scripts.beforeDeploy}
     
