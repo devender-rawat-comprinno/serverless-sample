@@ -19,14 +19,4 @@ functions:
 plugins:
   - serverless-docker-artifacts
 
-custom:
-  scripts:
-    # Define a script to run before deployment
-    beforeDeploy: ./scripts/before_deploy.sh
-
-# Define a lifecycle hook to execute the script before deployment
-lifecycle:
-  # Execute the script before deployment
-  - before:deploy:deploy
-    command: ${self:custom.scripts.beforeDeploy}
     
