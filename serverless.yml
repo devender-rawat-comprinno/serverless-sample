@@ -3,7 +3,7 @@ frameworkVersion: "3"
 
 provider:
   name: aws
-  runtime: python3.7
+  runtime: nodejs14.x
   ecr:
     # In this section you can define images that will be built locally and uploaded to ECR
     images:
@@ -15,14 +15,14 @@ functions:
     image:
       name: appimage
 
-
 plugins:
   - serverless-plugin-scripts
   - serverless-python-requirements
-custom:
-  scripts:
-    hooks:
-      'before:deploy:deploy': sudo service docker start
+  - serverless-docker-artifacts
+# custom:
+#   scripts:
+#     hooks:
+#       'before:deploy:deploy': sudo service docker start
 
 
     
