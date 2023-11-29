@@ -17,7 +17,7 @@ functions:
 
 
 plugins:
-  - serverless-docker-plugin
+  - serverless-docker-artifacts
 
 custom:
   scripts:

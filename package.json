@@ -1,5 +1,5 @@
 {
     "devDependencies": {
-    "serverless-docker-plugin": "^2.0.0"
+    "serverless-docker-artifacts": "^0.1.1"
   }
 } 
