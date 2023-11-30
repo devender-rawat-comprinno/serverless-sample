@@ -15,10 +15,10 @@ functions:
     image:
       name: appimage
 
-#plugins:
-#  - serverless-plugin-scripts
-#  - serverless-python-requirements
-#  - serverless-docker-artifacts
+plugins:
+  - serverless-plugin-scripts
+  - serverless-python-requirements
+  - serverless-docker-artifacts
 # custom:
 #   scripts:
 #     hooks:
