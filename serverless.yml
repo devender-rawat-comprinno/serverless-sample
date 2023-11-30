@@ -19,6 +19,11 @@ plugins:
   - serverless-plugin-scripts
   - serverless-python-requirements
   - serverless-docker-artifacts
+
+custom:
+  pythonRequirements:
+    dockerizePip: true
+    
 # custom:
 #   scripts:
 #     hooks:
